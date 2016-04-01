@@ -25,16 +25,27 @@ public class SierpinskiTriangle {
 	}
    
 	public void sierpinski(Point2D.Double a, Point2D.Double b, Point2D.Double c, int n) {
-	   drawTriangle(a, b, c, Color.WHITE);
-	   if (n <= 0) return;
-		   Point2D.Double newA = new Point2D.Double(((b.x + a.x) / 2), ((b.y + a.y) / 2));
-		   Point2D.Double newB = new Point2D.Double(((b.x + c.x) / 2), ((b.y + c.y) / 2));
-		   Point2D.Double newC = new Point2D.Double(((a.x + c.x) / 2), ((a.y + c.y) / 2));
+	   
+	   Point2D.Double newA = new Point2D.Double(((a.x + c.x) / 2), ((a.y + c.y) / 2));
+	   Point2D.Double newB = new Point2D.Double(((a.x + b.x) / 2), ((a.y + b.y) / 2));
+	   Point2D.Double newC = new Point2D.Double(((b.x + c.x) / 2), ((b.y + c.y) / 2));
+	   drawTriangle(a, b, c, Color.BLACK);
+	   n--;
+	   if (n <= 0) {
+		   drawTriangle(a, newA, newB, Color.WHITE);
+		   drawTriangle(b, newB, newC, Color.WHITE);
+		   drawTriangle(newA, newC, c, Color.WHITE);
+	   } else {
+		   sierpinski(a, newA, newB, n);
+		   sierpinski(b, newB, newC, n);
+		   sierpinski(newA, newC, c, n);
+	   		
+		 
 //		   return sierpinski(((b.x + a.x) / 2), ((c.x + a.x) / 2), ((a.x + c.x) / 2));
-		   drawTriangle(newA, newB, newC, Color.BLACK);
+//		   drawTriangle(newA, newB, newC, Color.BLACK);
 //		   return sierpinski(newA, newB, newC, n + 1);
 		   
-		   System.out.println("HALF LIFE 3 CONFIRMED!!!!!!!!");
+	   }
     }
    
 	public void drawTriangle(Point2D.Double a, Point2D.Double b, Point2D.Double c, Color color) {
@@ -52,6 +63,6 @@ public class SierpinskiTriangle {
 	
 	public static void main(String[] args) { 
 		SierpinskiTriangle triangle = new SierpinskiTriangle();
-		triangle.draw(3);
+		triangle.draw(12);
 	}
 }
