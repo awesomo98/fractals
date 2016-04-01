@@ -63,6 +63,6 @@ public class SierpinskiTriangle {
 	
 	public static void main(String[] args) { 
 		SierpinskiTriangle triangle = new SierpinskiTriangle();
-		triangle.draw(12);
+		triangle.draw(8);
 	}
 }
