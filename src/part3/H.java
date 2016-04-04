@@ -6,7 +6,7 @@ import draw.StdDraw;
 public class H {
 
 	private Point2D.Double[] points = new Point2D.Double[6];
-	private double size;
+	private static double size;
 	
 	public H(Point2D.Double center, double size) {
 		this.size = size;
@@ -41,7 +41,7 @@ public class H {
 		return points[0];
 	}
 	
-	public double getSize() {
+	public static double getSize() {
 		return size;
 	}
 }

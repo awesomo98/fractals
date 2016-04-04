@@ -9,7 +9,7 @@ import java.awt.Color;
 public class HTree {
 	
 	public static void main(String[] args) {
-		HTree htree = new HTree();
+		HTree htree = new HTree(null, 0);
 		htree.draw(3);
 	}
 
@@ -35,7 +35,8 @@ public class HTree {
 		recurTree(0, 0, 0).draw();
 	}
 	
-	public void recurTree(Double center, int Center, int n) {
+	public void recurTree(Double center, double d, double newSize2) {
+		double newSize = H.getSize();
 		
 		H h = new H(center, 155);
 		Point2D.Double topRight = h .getTopRight();
@@ -43,16 +44,16 @@ public class HTree {
 		Point2D.Double bottomRight = h.getBottomRight();
 		Point2D.Double bottomLeft = h.getBottomLeft();
 		
-		n = h.getSize() / 2;
-		n--;
+		newSize2 = (int) (h.getSize() / 2);
+		newSize2--;
 		
-		if (n <= 0) {
+		if (newSize2 <= 0) {
 			return;
 		} else {
-			recurTree(topRight, n - 1, next);
-			recurTree(topLeft, n - 1, next);
-			recurTree(bottomRight, n - 1, next);
-			recurTree(bottomLeft, n - 1, next);
+			recurTree(topRight, newSize2 - 1, newSize);
+			recurTree(topLeft, newSize2 - 1, newSize);
+			recurTree(bottomRight, newSize2 - 1, newSize);
+			recurTree(bottomLeft, newSize2 - 1, newSize);
 		}
 	}
 	
