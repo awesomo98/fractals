@@ -66,7 +66,7 @@ public class SierpinskiTriangle implements MouseListener, MouseMotionListener {
 	}
 	
 	
-	public static int recursionFactor = 0;
+	public static int recursionFactor = 2;
 	
 	
 	public static void main(String[] args) { 

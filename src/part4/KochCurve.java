@@ -11,6 +11,12 @@ public class KochCurve {
 		KochCurve curve = new KochCurve();
 		curve.draw(2);
 	}
+
+	private Double start;
+	private Double firstEnd;
+	private Double midEnd;
+	private Double lastEnd;
+	private Double end;
 	
 	public KochCurve() {
 		UltraDraw.setYscale(0, 150);
@@ -31,7 +37,13 @@ public class KochCurve {
 		curve(left, right, top);
 	}
 	
-	public void curve(Point2D.Double left, Point2D.Double right, Point2D.Double top) {
-		
+	public void curve(Point2D.Double a, Point2D.Double b, Point2D.Double c, int n) {
+		if (n < 0) return;
+		this.start = new Point2D.Double(25, 75);
+		this.firstEnd = new Point2D.Double(50, 75); 
+		this.midEnd = new Point2D.Double(75, 100);
+		this.lastEnd = new Point2D.Double(100, 75);
+		this.end = new Point2D.Double(125, 75)
+		drawCurve(start, firstEnd, midEnd, lastEnd, end);
 	}
 }
